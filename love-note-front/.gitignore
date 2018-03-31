@@ -1,0 +1,24 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# compiled file
+src/main/webapp/ng/*
+
+# application.propeties
+application.properties
+src/main/resources/application.properties
+

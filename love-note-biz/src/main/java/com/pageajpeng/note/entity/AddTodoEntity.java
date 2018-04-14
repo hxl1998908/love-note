@@ -11,12 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddTodoEntity {
+    private Long todoId;
     private Long userId;
     private String name;
     private String description;
 
     public static TodoDto as(AddTodoEntity addTodoEntity) {
-        return new TodoDto(null, addTodoEntity.getUserId(),
+        return new TodoDto(addTodoEntity.getTodoId(), addTodoEntity.getUserId(),
                 addTodoEntity.getName(), addTodoEntity.getDescription());
     }
 }

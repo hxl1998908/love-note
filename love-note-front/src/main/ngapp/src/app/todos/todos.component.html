@@ -1,6 +1,13 @@
-<ul class="list-group">
-  <li  *ngFor="let todo of todos"
-       class="list-group-item">
-    <a routerLink="/detail/{{todo.todoId}}">{{todo.name}}</a>
-  </li>
-</ul>
+<div class="container-fluid component-container">
+  <div class="todos-list">
+    <ul class="list-group">
+      <li  *ngFor="let todo of todos"
+           class="list-group-item">
+        <a routerLink="/detail/{{todo.todoId}}">{{todo.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="bottom-right">
+    <app-todo-add></app-todo-add>
+  </div>
+</div>

@@ -9,20 +9,25 @@ import { TodosComponent } from './todos/todos.component';
 import {HttpClientModule} from "@angular/common/http";
 import {TodoService} from "./todo.service";
 import { TodoDetailComponent } from './todo-detail/todo-detail.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+import { TabsetPortalComponent } from './tabset-portal/tabset-portal.component';
+import { TodoAddComponent } from './todo-add/todo-add.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    TodoDetailComponent
+    TodoDetailComponent,
+    TabsetPortalComponent,
+    TodoAddComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [
     TodoService

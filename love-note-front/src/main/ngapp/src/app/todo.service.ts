@@ -10,7 +10,7 @@ const httpOptions = {
 
 @Injectable()
 export class TodoService {
-  private todosUrl = 'todo'
+  private todosUrl = 'todo';
 
   constructor(
     private http: HttpClient
@@ -20,7 +20,7 @@ export class TodoService {
     return this.http.get<object[]>(this.todosUrl)
       .pipe(
         tap(heroes => console.log(`fetched heroes`)),
-        catchError(this.handleError('getTodos', []))
+        catchError(this.handleError<object[]>('getTodos', []))
     );
   }
 
@@ -37,6 +37,13 @@ export class TodoService {
       tap(_ => console.log(`updated hero id=${todo}`)),
       catchError(this.handleError<any>('updateHero'))
     );
+  }
+
+  addTodo(todo: object): Observable<object> {
+    return this.http.post(this.todosUrl, todo, httpOptions).pipe(
+      tap( todo => console.log(`added todo w/ id=${todo}`)),
+      catchError(this.handleError<object>('addHero'))
+    )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

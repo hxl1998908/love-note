@@ -24,9 +24,10 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void store(AddTodoEntity addTodoEntity) {
+    public TodoEntity store(AddTodoEntity addTodoEntity) {
         TodoDto todoDto = AddTodoEntity.as(addTodoEntity);
         todoDao.add(todoDto);
+        return TodoEntity.of(todoDto);
     }
 
     @Override
@@ -34,5 +35,9 @@ public class TodoServiceImpl implements TodoService {
         return TodoEntity.of(todoDao.get(userId, todoId));
     }
 
-
+    @Override
+    public void update(AddTodoEntity addTodoEntity) {
+        TodoDto todoDto = AddTodoEntity.as(addTodoEntity);
+        todoDao.update(todoDto);
+    }
 }

@@ -24,10 +24,10 @@ public class TodoController {
         return todoService.getList(USER_ID).stream().map(TodoVo::of).collect(Collectors.toList());
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
-    public void save(@RequestBody AddTodoEntity addTodoEntity) {
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public TodoVo add(@RequestBody AddTodoEntity addTodoEntity) {
         addTodoEntity.setUserId(USER_ID);
-        todoService.store(addTodoEntity);
+        return TodoVo.of(todoService.store(addTodoEntity));
     }
 
     @RequestMapping(value = "/{todoId}", method = RequestMethod.GET)
@@ -39,6 +39,7 @@ public class TodoController {
 
     @RequestMapping(value = "", method = RequestMethod.PUT)
     public void update(@RequestBody AddTodoEntity addTodoEntity) {
-        
+        addTodoEntity.setUserId(USER_ID);
+        todoService.update(addTodoEntity);
     }
 }

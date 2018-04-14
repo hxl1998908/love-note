@@ -43,6 +43,10 @@ public class TodoDaoImpl implements TodoDao {
     @Override
     public void update(TodoDto todoDto) {
         String todoObjectKey = todoObjectKey(todoDto.getUserId());
+        TodoDto storedDto = hashOperations.get(todoObjectKey, todoDto.getTodoId());
+        if(storedDto == null){
+            throw new RuntimeException("no todo to update, id:" + todoDto.getUserId());
+        }
         hashOperations.put(todoObjectKey, todoDto.getTodoId(), todoDto);
     }
 

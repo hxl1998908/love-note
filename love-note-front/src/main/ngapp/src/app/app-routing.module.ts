@@ -6,7 +6,8 @@ import {TodoDetailComponent} from "./todo-detail/todo-detail.component";
 const routes: Routes = [
   {path: '', redirectTo: '/todos', pathMatch: 'full'},
   {path: 'todos', component: TodosComponent},
-  {path: 'detail/:todoId', component: TodoDetailComponent}
+  {path: 'detail/:todoId', component: TodoDetailComponent},
+  {path: 'surprise', component: TodosComponent}
 ];
 
 @NgModule({

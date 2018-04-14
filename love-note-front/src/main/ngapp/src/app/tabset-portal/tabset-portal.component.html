@@ -1,0 +1,8 @@
+<ngb-tabset type="pills" [activeId]="selectedTab" [justify]="justified">
+  <ngb-tab *ngFor="let tab of tabs" id="{{tab.id}}">
+    <ng-template ngbTabTitle>
+      <span class="tab-title" routerLink="{{tab.link}}">{{tab.title}}</span>
+    </ng-template>
+    <ng-template ngbTabContent></ng-template>
+  </ngb-tab>
+</ngb-tabset>

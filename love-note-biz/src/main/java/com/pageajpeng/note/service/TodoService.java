@@ -8,7 +8,9 @@ import java.util.List;
 public interface TodoService {
     List<TodoEntity> getList(Long userId);
 
-    void store(AddTodoEntity addTodoEntity);
+    TodoEntity store(AddTodoEntity addTodoEntity);
 
     TodoEntity get(Long userId, Long todoId);
+
+    void update(AddTodoEntity addTodoEntity);
 }
